@@ -13,5 +13,3 @@ namespace Nudo
 
 	Application* CreateApplication();
 }
-
-

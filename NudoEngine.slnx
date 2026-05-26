@@ -1,7 +1,0 @@
-<Solution>
-  <Configurations>
-    <Platform Name="x64" />
-  </Configurations>
-  <Project Path="NudoEngine/NudoEngine.vcxproj" />
-  <Project Path="SandBox/SandBox.vcxproj" />
-</Solution>
