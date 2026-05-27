@@ -4,6 +4,9 @@
     <Filter Include="Nudo">
       <UniqueIdentifier>{1BD4897C-070B-8B0D-B0F7-70109C0D070F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Nudo\Events">
+      <UniqueIdentifier>{9F731A23-0B29-9318-941D-8DEF00D2891C}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Nudo.h" />
@@ -15,6 +18,18 @@
     </ClInclude>
     <ClInclude Include="src\Nudo\EntryPoint.h">
       <Filter>Nudo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nudo\Events\ApplicationEvent.h">
+      <Filter>Nudo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nudo\Events\Event.h">
+      <Filter>Nudo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nudo\Events\KeyEvent.h">
+      <Filter>Nudo\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nudo\Events\MouseEvent.h">
+      <Filter>Nudo\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Nudo\Log.h">
       <Filter>Nudo</Filter>

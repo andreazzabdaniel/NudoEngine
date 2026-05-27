@@ -29,6 +29,7 @@ project "NudoEngine"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"vendor/spdlog/include"
 	}
 
