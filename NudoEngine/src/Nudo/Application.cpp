@@ -1,3 +1,4 @@
+#include "ndpch.h"
 #include "Application.h"
 
 namespace Nudo

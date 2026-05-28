@@ -1,3 +1,4 @@
+#include "ndpch.h"
 #include <Nudo.h>
 
 class SandBox : public Nudo::Application

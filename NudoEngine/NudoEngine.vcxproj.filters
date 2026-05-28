@@ -34,6 +34,7 @@
     <ClInclude Include="src\Nudo\Log.h">
       <Filter>Nudo</Filter>
     </ClInclude>
+    <ClInclude Include="src\ndpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nudo\Application.cpp">
@@ -42,5 +43,6 @@
     <ClCompile Include="src\Nudo\Log.cpp">
       <Filter>Nudo</Filter>
     </ClCompile>
+    <ClCompile Include="src\ndpch.cpp" />
   </ItemGroup>
 </Project>

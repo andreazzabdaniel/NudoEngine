@@ -33,6 +33,9 @@ project "NudoEngine"
 		"vendor/spdlog/include"
 	}
 
+	pchheader "ndpch.h"
+	pchsource "NudoEngine/src/ndpch.cpp"
+
 	buildoptions { "/utf-8" }
 
 	filter "configurations:Debug"
