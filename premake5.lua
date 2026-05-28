@@ -11,6 +11,15 @@ workspace "NudoEngine"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"]   = "vendor/GLFW/include"
+IncludeDir["Vulkan"] = "%{os.getenv('VULKAN_SDK')}/Include"
+
+LibDir = {}
+LibDir["Vulkan"] = "%{os.getenv('VULKAN_SDK')}/Lib"
+
+include "vendor/GLFW"
+
 project "NudoEngine"
 	location "NudoEngine"
 	kind "StaticLib"
@@ -30,7 +39,20 @@ project "NudoEngine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"vendor/spdlog/include"
+		"vendor/spdlog/include",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Vulkan}"
+	}
+
+	libdirs
+	{
+		"%{LibDir.Vulkan}"
+	}
+
+	links
+	{
+		"GLFW",
+		"vulkan-1"
 	}
 
 	pchheader "ndpch.h"
@@ -72,7 +94,8 @@ project "SandBox"
 	includedirs
 	{
 		"NudoEngine/src",
-		"vendor/spdlog/include"
+		"vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
 	}
 
 	links
