@@ -164,17 +164,17 @@
     <ClInclude Include="src\Nudo\Events\KeyEvent.h" />
     <ClInclude Include="src\Nudo\Events\MouseEvent.h" />
     <ClInclude Include="src\Nudo\Log.h" />
-    <ClInclude Include="src\ndpch.h" />
-    <ClInclude Include="src\Platform\WindowsWindow.h" />
     <ClInclude Include="src\Nudo\Window.h" />
+    <ClInclude Include="src\Platform\WindowsWindow.h" />
+    <ClInclude Include="src\ndpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nudo\Application.cpp" />
     <ClCompile Include="src\Nudo\Log.cpp" />
+    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
     <ClCompile Include="src\ndpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\vendor\GLFW\GLFW.vcxproj">

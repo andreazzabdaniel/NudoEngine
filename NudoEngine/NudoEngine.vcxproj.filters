@@ -7,6 +7,9 @@
     <Filter Include="Nudo\Events">
       <UniqueIdentifier>{9F731A23-0B29-9318-941D-8DEF00D2891C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Nudo.h" />
@@ -34,9 +37,13 @@
     <ClInclude Include="src\Nudo\Log.h">
       <Filter>Nudo</Filter>
     </ClInclude>
+    <ClInclude Include="src\Nudo\Window.h">
+      <Filter>Nudo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\WindowsWindow.h">
+      <Filter>Platform</Filter>
+    </ClInclude>
     <ClInclude Include="src\ndpch.h" />
-    <ClInclude Include="src\Nudo\Window.h" />
-    <ClInclude Include="src\Platform\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nudo\Application.cpp">
@@ -45,7 +52,9 @@
     <ClCompile Include="src\Nudo\Log.cpp">
       <Filter>Nudo</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\WindowsWindow.cpp">
+      <Filter>Platform</Filter>
+    </ClCompile>
     <ClCompile Include="src\ndpch.cpp" />
-    <ClCompile Include="src\Platform\WindowsWindow.cpp" />
   </ItemGroup>
 </Project>
