@@ -15,9 +15,6 @@ namespace Nudo
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1200, 750);
-		ND_CORE_INFO(e);
-
 		while (m_IsRuning)
 		{
 			m_Window->OnUpdate();

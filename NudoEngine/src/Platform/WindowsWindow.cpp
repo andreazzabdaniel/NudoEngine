@@ -43,6 +43,12 @@ namespace Nudo
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 	}
 
+	void WindowsWindow::Shutdown()
+	{
+		glfwDestroyWindow(m_Window);
+		glfwTerminate();
+	}
+
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
@@ -56,11 +62,5 @@ namespace Nudo
 	bool WindowsWindow::IsVSync() const
 	{
 		return m_Data.VSync;
-	}
-
-	void WindowsWindow::Shutdown()
-	{
-		glfwDestroyWindow(m_Window);
-		glfwTerminate();
 	}
 }
