@@ -1,5 +1,6 @@
 # Visual Studio cache/options
 .vs/
+ipch/
 
 # Build results
 [Dd]ebug/
@@ -26,6 +27,8 @@ x86/
 *.sdf
 *.cachefile
 *.VC.db
+*.VC.db-wal
+*.VC.db-shm
 *.VC.VC.opendb
 
 # Object files
@@ -38,6 +41,9 @@ x86/
 *.lib
 *.dll
 *.exe
+
+# Premake
+premake5.exe
 
 # CMake
 CMakeCache.txt

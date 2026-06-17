@@ -7,8 +7,17 @@
     <Filter Include="Nudo\Events">
       <UniqueIdentifier>{9F731A23-0B29-9318-941D-8DEF00D2891C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Nudo\Renderer">
+      <UniqueIdentifier>{21E6804A-8DA6-FC80-56E1-45FEC260415D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Vulkan">
+      <UniqueIdentifier>{6AE1DE2D-D66C-4CF2-DF7D-CFE64B88A8F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Window">
+      <UniqueIdentifier>{D1E05B2F-3D6C-C9F3-467D-4CE8B28725F4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,27 +43,71 @@
     <ClInclude Include="src\Nudo\Events\MouseEvent.h">
       <Filter>Nudo\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Nudo\Layer.h">
+      <Filter>Nudo</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Nudo\LayerStack.h">
+      <Filter>Nudo</Filter>
+    </ClInclude>
     <ClInclude Include="src\Nudo\Log.h">
       <Filter>Nudo</Filter>
     </ClInclude>
     <ClInclude Include="src\Nudo\Window.h">
       <Filter>Nudo</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platform\WindowsWindow.h">
-      <Filter>Platform</Filter>
+    <ClInclude Include="src\Platform\Vulkan\VulkanContext.h">
+      <Filter>Platform\Vulkan</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Window\WindowsWindow.h">
+      <Filter>Platform\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\ndpch.h" />
+    <ClInclude Include="src\Nudo\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Nudo\Renderer\Buffer.h" />
+    <ClInclude Include="src\Nudo\Renderer\Shader.h" />
+    <ClInclude Include="src\Nudo\Renderer\Texture.h" />
+    <ClInclude Include="src\Nudo\Renderer\FrameBuffer.h" />
+    <ClInclude Include="src\Nudo\Renderer\Pipeline.h" />
+    <ClInclude Include="src\Nudo\Renderer\RenderPass.h" />
+    <ClInclude Include="src\Nudo\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Nudo\Renderer\Camera.h" />
+    <ClInclude Include="src\Nudo\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Nudo\Renderer\VertexArray.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanBuffer.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanShader.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanTexture.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanFrameBuffer.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanPipeline.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanRenderPass.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanVertexArray.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanDescriptorSet.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanDebug.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanDevice.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanSwapChain.h" />
+    <ClInclude Include="src\Platform\Vulkan\VulkanAllocator.h" />
+    <ClInclude Include="src\Nudo\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\Vulkan\Utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Nudo\Application.cpp">
       <Filter>Nudo</Filter>
     </ClCompile>
+    <ClCompile Include="src\Nudo\Layer.cpp">
+      <Filter>Nudo</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Nudo\LayerStack.cpp">
+      <Filter>Nudo</Filter>
+    </ClCompile>
     <ClCompile Include="src\Nudo\Log.cpp">
       <Filter>Nudo</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platform\WindowsWindow.cpp">
-      <Filter>Platform</Filter>
+    <ClCompile Include="src\Platform\Window\WindowsWindow.cpp">
+      <Filter>Platform\Window</Filter>
     </ClCompile>
     <ClCompile Include="src\ndpch.cpp" />
+    <ClCompile Include="src\Platform\Vulkan\VulkanContext.cpp" />
+    <ClCompile Include="src\Platform\Vulkan\VulkanDevice.cpp" />
+    <ClCompile Include="src\Platform\Vulkan\VulkanDebug.cpp" />
+    <ClCompile Include="src\Platform\Vulkan\VulkanSwapChain.cpp" />
   </ItemGroup>
 </Project>

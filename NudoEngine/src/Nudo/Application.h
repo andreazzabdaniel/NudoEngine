@@ -1,11 +1,13 @@
 #pragma once
 
-#include "Events/Event.h"
-#include "Events/ApplicationEvent.h"
+#include "Nudo/Core.h"
 
 #include "Window.h"
+#include "Nudo/Renderer/GraphicsContext.h"
+#include "Nudo/LayerStack.h"
+#include "Nudo/Events/Event.h"
+#include "Nudo/Events/ApplicationEvent.h"
 
-#include "Nudo/Log.h"
 
 namespace Nudo
 {
@@ -17,11 +19,18 @@ namespace Nudo
 
 		void Run();
 
-	private:
-		std::unique_ptr<Window> m_Window;
+		void OnEvent(Event& e);	
 
-		// Temp
-		bool m_IsRuning;
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* overlay);
+	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		bool m_IsRuning = true;
+
+		std::unique_ptr<Window> m_Window;
+		std::unique_ptr<GraphicsContext> m_GraphicContext;
+		LayerStack m_LayerStack;
 	};
 
 	Application* CreateApplication();

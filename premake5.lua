@@ -14,6 +14,8 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"]   = "vendor/GLFW/include"
 IncludeDir["Vulkan"] = "%{os.getenv('VULKAN_SDK')}/Include"
+IncludeDir["VMA"]    = "vendor/VMA/include"
+IncludeDir["GLM"]    = "vendor/glm-1.0.3"
 
 LibDir = {}
 LibDir["Vulkan"] = "%{os.getenv('VULKAN_SDK')}/Lib"
@@ -41,7 +43,9 @@ project "NudoEngine"
 		"%{prj.name}/src",
 		"vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Vulkan}"
+		"%{IncludeDir.Vulkan}",
+		"%{IncludeDir.VMA}",
+		"%{IncludeDir.GLM}"
 	}
 
 	libdirs
@@ -95,7 +99,9 @@ project "SandBox"
 	{
 		"NudoEngine/src",
 		"vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Vulkan}",
+		"%{IncludeDir.GLM}"
 	}
 
 	links

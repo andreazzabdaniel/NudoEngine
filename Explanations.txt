@@ -1,0 +1,70 @@
+Vulkan/VulkanContext
+	Esse arquivo eu tenho a interface com a janela e Vk. Tudo que envolve a janela será criado ali, ele é a ligação entre os 2 e ali dentro
+	que eu faço a inicialização de tudo que preciso para o contexto da aplicação.
+	Tudo em vulkan precisa de instance por isso ele fica ali, mas o resto é a ligação da janela com o VK.
+
+
+Surface, swapchain, presentation mode
+1 - Surface
+	A surface é a interface entre a janela e Vulkan, ela não rederiza nada ela só descreve como a janela funciona e o que ela suporta.
+	A surface expõe as informações sobre a janela para a Vulkan:
+		vkGetPhysicalDeviceSurfaceCapabilitiesKHR(device, surface, &capabilities);
+		// → tamanho min/max, número de imagens suportado, transforms
+
+		vkGetPhysicalDeviceSurfaceFormatsKHR(device, surface, &count, formats);
+		// → formatos de pixel suportados: BGRA8, RGBA8, HDR...
+
+		vkGetPhysicalDeviceSurfacePresentModesKHR(device, surface, &count, modes);
+		// → modos de apresentação: vsync, mailbox, imediato...
+
+
+	A Surface é puramente informacional — ela descreve o que está disponível, não prescreve o que fazer. Você quem escolhe.
+
+
+	A surface é criada a partir da instancia, pois ela não é específica do motor gráfico, ela é mais do sistema operacional e não da GPU.
+	A surface sobrevivi ao swapChain, quando a janela é redimensionada, você recria o SwapChain mas a Surface continua a mesma.
+
+2 - SwapChain
+	Essa é a fila de imagens para a apresentação, é o consjunto de imagens pré-alocadas que se alternam entre GPU e monitor.
+	
+
+
+3 - Hierarquia:
+VkInstance
+  └── VkSurfaceKHR              ← criada da Instance + janela
+  └── VkPhysicalDevice
+       └── VkDevice
+            └── VkSwapchainKHR    ← criada do Device + Surface
+                 └── VkImage[]     ← imagens pertencentes ao swapchain
+                 └── VkImageView[] ← como a GPU "vê" cada imagem
+                 └── VkFramebuffer[] ← conecta imagem ao render pass
+
+
+
+3 - Render pass
+	Antes de executar qualquer draw call, você declara um "plano" para o driver Vulkan:
+		→ Quais superfícies (attachments) serão usadas para renderizar
+		→ O que fazer no INÍCIO de cada uma
+		→ O que fazer no FIM de cada uma
+
+	ATTACHMENTS — as superfícies de renderização
+		Color,
+		depth,
+		stencil,
+
+	A Pipeline de renderização tem uma referência da render pass dentro dela.
+
+		SwapChain → dono das imagens reais (VkImage)
+		RenderPass → descrição abstrata do que espera (formato, operações)
+		Framebuffer → a ponte que conecta os dois
+
+		RenderPass                    SwapChain
+		"espero um color attachment   image[0]: VkImage (BGRA8)
+ 		no formato BGRA8,            image[1]: VkImage (BGRA8)
+ 		com CLEAR + STORE"           image[2]: VkImage (BGRA8)
+		        │                            │
+        		└──────── Framebuffer ───────┘
+                  		"o attachment[0] do RenderPass
+                 		  = VkImageView da image[1]"
+		
+
